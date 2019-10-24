@@ -1,0 +1,25 @@
+services:
+  _defaults:
+    public: false
+
+  Van\Translator\:
+    resource: '../../'
+
+  translator:
+    class: Van\Translation\Translator
+    public: true
+    arguments:
+    - '@service_container'
+
+  translation.fileloader:
+    class: Van\Translation\FileLoader
+    public: true
+    arguments:
+    - '@service_container'
+
+
+  translation.arrayloader:
+    class: Van\Translation\ArrayLoader
+    public: true
+    arguments:
+    - '@service_container'

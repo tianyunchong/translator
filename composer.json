@@ -1,0 +1,31 @@
+{
+    "name": "van/tranlator",
+    "description": "van tranlator bundle",
+    "type": "van-bundle",
+    "authors": [
+        {
+            "name": "tianyunchong",
+            "email": "854024109@qq.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "illuminate/contracts": "^6.0",
+        "illuminate/filesystem": "^6.0",
+        "illuminate/support": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Van\\Tranlator\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer"
+        }
+    }
+}
