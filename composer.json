@@ -19,13 +19,5 @@
         "psr-4": {
             "Van\\Tranlator\\": "src/"
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://mirrors.aliyun.com/composer"
-        }
     }
 }
