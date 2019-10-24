@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Van\\Tranlator\\": "src/"
+            "Van\\Translation\\": "src/"
         }
     }
 }
