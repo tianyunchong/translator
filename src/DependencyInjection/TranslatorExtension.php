@@ -10,7 +10,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Config\FileLocator;
-use Van\Redis\Constant;
+use Van\Translation\FileLoader;
+use Illuminate\Filesystem\Filesystem;
 
 
 class TranslatorExtension extends Extension
@@ -20,6 +21,10 @@ class TranslatorExtension extends Extension
     {
         $loader = new YamlFileLoader($container, new FileLocator(\dirname(__DIR__) . '/Resources/config'));
         $loader->load('services.yaml');
+        $loader = new FileLoader(new Filesystem, \dirname(__DIR__) . '/Resources/lang');
+        var_dump($loader);
+        exit;
+        $container->set('translation.loader', $loader);
         // $configuration = $this->getConfiguration($configs, $container);
         // $config = $this->processConfiguration($configuration, $configs);
         // $container->setParameter(Constant::REDIS_CONFIG, $config);

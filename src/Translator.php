@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\NamespacedItemResolver;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
+use Psr\Container\ContainerInterface;
 
 class Translator extends NamespacedItemResolver implements TranslatorContract
 {
@@ -50,6 +51,8 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
      */
     protected $selector;
 
+    public $container;
+
     /**
      * Create a new translator instance.
      *
@@ -57,10 +60,14 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
      * @param  string  $locale
      * @return void
      */
-    public function __construct(Loader $loader, $locale)
+    public function __construct(ContainerInterface $container)
     {
-        $this->loader = $loader;
-        $this->locale = $locale;
+        $this->container = $container;
+        //$this->loader = $this->container->get("translation.fileloader");
+        //var_dump($this->loader);
+        //exit;
+        //$this->loader = $loader;
+        $this->locale = $container->getParameter('locale');
     }
 
     /**
