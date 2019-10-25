@@ -5,6 +5,7 @@ namespace Van\Translation;
 use Illuminate\Contracts\Translation\Loader;
 use Illuminate\Filesystem\Filesystem;
 use RuntimeException;
+use Psr\Container\ContainerInterface;
 
 class FileLoader implements Loader
 {
@@ -36,6 +37,7 @@ class FileLoader implements Loader
      */
     protected $hints = [];
 
+    public $container;
     /**
      * Create a new file loader instance.
      *
@@ -43,10 +45,11 @@ class FileLoader implements Loader
      * @param  string  $path
      * @return void
      */
-    public function __construct(Filesystem $files, $path)
+    public function __construct(ContainerInterface $container)
     {
-        $this->path = $path;
-        $this->files = $files;
+        $this->container = $container;
+        $this->files = new Filesystem;
+        $this->path = $this->container->getParameter("translation.path");
     }
 
     /**

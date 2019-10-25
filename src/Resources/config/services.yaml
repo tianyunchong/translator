@@ -10,3 +10,9 @@ services:
     public: true
     arguments:
     - '@service_container'
+
+  translator.loader:
+    class: Van\Translation\FileLoader
+    public: true
+    arguments:
+    - '@service_container'

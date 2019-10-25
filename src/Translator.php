@@ -63,10 +63,7 @@ class Translator extends NamespacedItemResolver implements TranslatorContract
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        //$this->loader = $this->container->get("translation.fileloader");
-        //var_dump($this->loader);
-        //exit;
-        $this->loader = $container->getParameter('translation.loader');
+        $this->loader = $container->get('translator.loader');
         $this->locale = $container->getParameter('locale');
     }
 
