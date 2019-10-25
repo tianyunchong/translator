@@ -20,9 +20,14 @@ class TranslatorExtension extends Extension
     {
         $loader = new YamlFileLoader($container, new FileLocator(\dirname(__DIR__) . '/Resources/config'));
         $loader->load('services.yaml');
-
-        $configuration = $this->getConfiguration($configs, $container);
-        $config = $this->processConfiguration($configuration, $configs);
-        $container->setParameter(Constant::REDIS_CONFIG, $config);
+        // $configuration = $this->getConfiguration($configs, $container);
+        // $config = $this->processConfiguration($configuration, $configs);
+        // $container->setParameter(Constant::REDIS_CONFIG, $config);
     }
+
+      public function getConfiguration(array $config, ContainerBuilder $container)
+    {
+        return new Configuration($container->getParameter('kernel.debug'));
+    }
+
 }
