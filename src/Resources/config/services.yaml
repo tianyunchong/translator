@@ -10,16 +10,3 @@ services:
     public: true
     arguments:
     - '@service_container'
-
-  translation.fileloader:
-    class: Van\Translation\FileLoader
-    public: true
-    arguments:
-    - '@service_container'
-
-
-  translation.arrayloader:
-    class: Van\Translation\ArrayLoader
-    public: true
-    arguments:
-    - '@service_container'

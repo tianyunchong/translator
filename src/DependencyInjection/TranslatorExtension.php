@@ -22,8 +22,6 @@ class TranslatorExtension extends Extension
         $loader = new YamlFileLoader($container, new FileLocator(\dirname(__DIR__) . '/Resources/config'));
         $loader->load('services.yaml');
         $loader = new FileLoader(new Filesystem, \dirname(__DIR__) . '/Resources/lang');
-        var_dump($loader);
-        exit;
         $container->set('translation.loader', $loader);
         // $configuration = $this->getConfiguration($configs, $container);
         // $config = $this->processConfiguration($configuration, $configs);
