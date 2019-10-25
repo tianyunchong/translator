@@ -3,6 +3,7 @@
 namespace Van\Translation;
 
 use Illuminate\Contracts\Translation\Loader;
+use Psr\Container\ContainerInterface;
 
 class ArrayLoader implements Loader
 {
@@ -12,6 +13,19 @@ class ArrayLoader implements Loader
      * @var array
      */
     protected $messages = [];
+
+
+     /**
+     * Create a new array loader instance.
+     *
+     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  string  $path
+     * @return void
+     */
+    public function __construct(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
 
     /**
      * Load the messages for the given locale.
