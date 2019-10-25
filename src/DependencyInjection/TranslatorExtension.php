@@ -23,13 +23,6 @@ class TranslatorExtension extends Extension
 
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
-        
         $container->setParameter(Constant::REDIS_CONFIG, $config);
     }
-
-    public function getConfiguration(array $config, ContainerBuilder $container)
-    {
-        return new Configuration($container->getParameter('kernel.debug'));
-    }
-
 }
