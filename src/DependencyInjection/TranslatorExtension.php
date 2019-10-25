@@ -13,7 +13,7 @@ use Symfony\Component\Config\FileLocator;
 use Van\Redis\Constant;
 
 
-class RedisExtension extends Extension
+class TranslatorExtension extends Extension
 {
 
     public function load(array $configs, ContainerBuilder $container)
